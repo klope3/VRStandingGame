@@ -4250,6 +4250,236 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2069322359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2077484460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2086041877}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2086041876}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2086041876}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TriggerEventHelper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProjectileLauncher, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProjectileLauncher, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 141909561, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+      propertyPath: onTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567605641618450651, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.489
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1146
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.099
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624979, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_Name
+      value: PistolNEW 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261396410624989, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2086041876}
+    - targetCorrespondingSourceObject: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2086041877}
+  m_SourcePrefab: {fileID: 100100000, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
+--- !u!1 &2086041860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077484460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2086041876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086041860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d9bcaca6c94ff4386274396db32ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2086041877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086041860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c83096c6d0c4c409984d07381207f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTriggerPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2086041876}
+        m_TargetAssemblyTypeName: ProjectileLauncher, Assembly-CSharp
+        m_MethodName: SetTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnTriggerReleased:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2086041876}
+        m_TargetAssemblyTypeName: ProjectileLauncher, Assembly-CSharp
+        m_MethodName: SetTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1401384465748310209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4504,3 +4734,4 @@ SceneRoots:
   - {fileID: 597562632}
   - {fileID: 1517432254}
   - {fileID: 895891205}
+  - {fileID: 2077484460}
