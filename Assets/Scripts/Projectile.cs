@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField, Tooltip("The delay between when the projectile impacts " +
         "and when the GameObject is actually set " +
         "inactive.")] private float deathTime;
+    [SerializeField, Min(0)] private float impactForce;
     [SerializeField] private LayerMask impactLayers;
     private Vector3 movementVector;
     private float lifeTimer;
@@ -53,6 +54,11 @@ public class Projectile : MonoBehaviour
             if (health != null)
             {
                 health.AddHealth(-1 * damage);
+            }
+            Rigidbody body = rayHit.collider.GetComponent<Rigidbody>();
+            if (body != null)
+            {
+                body.AddForceAtPosition(movementVector * impactForce, rayHit.point, ForceMode.Impulse);
             }
             OnProjectileImpact?.Invoke(this, rayHit);
             OnImpact?.Invoke();

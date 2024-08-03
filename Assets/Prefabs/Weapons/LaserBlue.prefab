@@ -50,6 +50,7 @@ MonoBehaviour:
   damage: 0
   lifespan: 100
   deathTime: 1
+  impactForce: 1
   impactLayers:
     serializedVersion: 2
     m_Bits: 1

@@ -30,6 +30,22 @@ public class ProjectileLauncher : MonoBehaviour
     public UnityEvent OnFire;
     public UnityEvent OnAmmoChange;
 
+    public float CurAmmo
+    {
+        get
+        {
+            return currentAmmo;
+        }
+    }
+
+    public float MaxAmmo
+    {
+        get
+        {
+            return maxAmmo;
+        }
+    }
+
     public enum FireType
     {
         SemiAutomatic,
