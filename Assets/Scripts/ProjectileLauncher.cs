@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ProjectileLauncher : MonoBehaviour
 {
     [SerializeField, Min(0.001f)] private float shotsPerSecond;
+    [SerializeField, Range(0, 1)] private float inaccuracy;
     [SerializeField] private FireType fireType;
     [SerializeField] private AmmoType ammoType;
     [SerializeField, Min(1), Tooltip("Only used for 'recharge' ammo type.")] private float rechargePerSecond;
@@ -120,11 +121,18 @@ public class ProjectileLauncher : MonoBehaviour
         pooledProj.SetActive(true);
         pooledProj.transform.position = muzzleLocation.position;
         Projectile proj = pooledProj.GetComponent<Projectile>();
-        proj.Launch(muzzleLocation.forward);
-        proj.transform.forward = muzzleLocation.forward;
+        Vector3 projVector = GetInaccurateVector();
+        proj.Launch(projVector);
+        proj.transform.forward = projVector;
         triggerTimer = 0;
         AddAmmo(-1 * ammoPerShot);
 
         OnFire?.Invoke();
+    }
+
+    private Vector3 GetInaccurateVector()
+    {
+        Vector3 randOffset = Random.insideUnitCircle * inaccuracy * 0.001f;
+        return (muzzleLocation.right * randOffset.x + muzzleLocation.up * randOffset.y + muzzleLocation.forward * 0.001f).normalized;
     }
 }
