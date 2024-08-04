@@ -7,6 +7,8 @@ public class AiBrain : MonoBehaviour
     [SerializeField] private EnemyPositionProvider positionProvider;
     [SerializeField] private AiMovement movement;
     [SerializeField] private float moveTimer;
+    [SerializeField, Tooltip("When choosing a new navTarget, the max angle away from its current position, relative to the world center.")] 
+        private float maxAngleDeviance;
     private float timer;
 
     private void Awake()
@@ -19,7 +21,7 @@ public class AiBrain : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            movement.SetNavTarget(positionProvider.GetRandPosition());
+            movement.SetNavTarget(positionProvider.GetRandPosition(transform.position, maxAngleDeviance));
             timer = moveTimer;
         }
     }

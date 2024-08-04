@@ -26,8 +26,28 @@ public class EnemyPositionProvider : MonoBehaviour
 
     public Vector3 GetRandPosition()
     {
+        return CalcRandPosition(-0.5f * arcSpan, 0.5f * arcSpan);
+    }
+
+    public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance)
+    {
+        Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
+        transform.LookAt(flattenedRefPos);
         Vector3 euler = transform.localEulerAngles;
-        transform.localEulerAngles = new Vector3(euler.x, Random.Range(-0.5f * arcSpan, 0.5f * arcSpan), euler.z);
+        float startingY = euler.y > 180 ? euler.y - 360 : euler.y;
+        float deviatedMin = startingY - maxAngleDeviance;
+        float deviatedMax = startingY + maxAngleDeviance;
+        float arcMin = -0.5f * arcSpan;
+        float arcMax = 0.5f * arcSpan;
+        float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
+        float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
+        return CalcRandPosition(clampMin, clampMax);
+    }
+
+    private Vector3 CalcRandPosition(float randMin, float randMax)
+    {
+        Vector3 euler = transform.localEulerAngles;
+        transform.localEulerAngles = new Vector3(euler.x, Random.Range(randMin, randMax), euler.z);
         target.localPosition = new Vector3(0, 0, Random.Range(minDistFromCenter, maxDistFromCenter));
         return target.position + Vector3.up * Random.Range(minHeight, maxHeight);
     }
