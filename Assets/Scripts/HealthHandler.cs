@@ -15,6 +15,8 @@ public class HealthHandler : MonoBehaviour
     public UnityEvent OnDamage;
     public UnityEvent OnHeal;
     public UnityEvent OnDie;
+    public delegate void DamageEvent(int amount);
+    public event DamageEvent OnDamaged;
     public event System.Action OnDied;
 
     public int CurHealth
@@ -51,7 +53,10 @@ public class HealthHandler : MonoBehaviour
         if (amount > 0)
             OnHeal?.Invoke();
         if (amount < 0)
+        {
             OnDamage?.Invoke();
+            OnDamaged?.Invoke(amount);
+        }
         if (curHealth == 0)
         {
             OnDie?.Invoke();

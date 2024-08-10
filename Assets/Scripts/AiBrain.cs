@@ -30,7 +30,6 @@ public class AiBrain : MonoBehaviour
         }
 
         attackTime += Time.deltaTime;
-        if (IsAttacking()) Debug.Log("Attack");
         launcher.SetTrigger(IsAttacking());
     }
 
