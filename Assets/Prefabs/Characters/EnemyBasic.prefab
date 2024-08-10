@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 2538423483007518664}
   - component: {fileID: 1574936061137046266}
   - component: {fileID: 2709017624481778769}
+  - component: {fileID: 8294567747545051997}
+  - component: {fileID: 6985885986503586613}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -184,6 +186,54 @@ MonoBehaviour:
   navTargetTolerance: 0.5
   lookingTransform: {fileID: 2286727465707389001}
   lookTargetTag: PlayerChest
+--- !u!114 &8294567747545051997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779221637786056268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e62bf5e06d93745a14bb02b3a3e39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1
+  maxHealth: 1
+  invincible: 0
+  destroyOnDeath: 0
+  inactiveOnDeath: 1
+  showLogs: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &6985885986503586613
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779221637786056268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.11
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2795870059777528460
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +391,6 @@ GameObject:
   - component: {fileID: 7445484838855673212}
   - component: {fileID: 1141903393619060239}
   - component: {fileID: 6538009185603319288}
-  - component: {fileID: 3416264272124183549}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -414,24 +463,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3416264272124183549
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7095067915367872771}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
