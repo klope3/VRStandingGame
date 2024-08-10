@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AiBrain : MonoBehaviour
 {
-    [SerializeField] private EnemyPositionProvider positionProvider;
+    [SerializeField, Tooltip("Find the position provider on awake using this tag.")]
+    private string positionProviderTag;
+    private EnemyPositionProvider positionProvider;
     [SerializeField] private AiMovement movement;
     [SerializeField] private float moveTimer;
     [SerializeField, Tooltip("When choosing a new navTarget, the max angle away from its current position, relative to the world center.")] 
@@ -18,6 +20,9 @@ public class AiBrain : MonoBehaviour
     private void Awake()
     {
         timer = moveTimer;
+        GameObject go = GameObject.FindGameObjectWithTag(positionProviderTag);
+        positionProvider = go.GetComponent<EnemyPositionProvider>();
+        if (!positionProvider) Debug.LogWarning("No position provider found!");
     }
 
     private void Update()

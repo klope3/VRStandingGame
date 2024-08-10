@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Provides valid enemy positions for enemy spawning and navigation.
+//Helps prevent spawning in or moving to undesired locations.
 public class EnemyPositionProvider : MonoBehaviour
 {
     [SerializeField] private Transform target;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyLaserPool
   - PlayerChest
+  - EnemyPositionProvider
   layers:
   - Default
   - TransparentFX

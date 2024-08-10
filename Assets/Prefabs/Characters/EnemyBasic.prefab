@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49eec14ba9afd38428898316b055643e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionProvider: {fileID: 0}
+  positionProviderTag: EnemyPositionProvider
   movement: {fileID: 2709017624481778769}
   moveTimer: 5
   maxAngleDeviance: 30

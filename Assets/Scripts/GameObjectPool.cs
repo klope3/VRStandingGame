@@ -17,13 +17,14 @@ public class GameObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(bool setObjectActive = true)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
             GameObject obj = pooledObjects[i];
             if (!obj.activeSelf)
             {
+                if (setObjectActive) obj.SetActive(true);
                 return obj;
             } 
         }
