@@ -29566,6 +29566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
         type: 3}
+      propertyPath: inaccuracy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
       propertyPath: startingAmmo
       value: 100
       objectReference: {fileID: 0}
