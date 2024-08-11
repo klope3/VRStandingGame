@@ -4521,18 +4521,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotsPerSecond: 50
-  inaccuracy: 0.021
+  inaccuracy: 0
   fireType: 0
-  ammoType: 0
-  rechargePerSecond: 0
+  ammoType: 1
+  rechargePerSecond: 68
   muzzleLocation: {fileID: 6024261394930030411}
   projectilePool: {fileID: 0}
   findPool: 0
   findPoolTag: 
   showAimLine: 1
-  maxAmmo: 1000
-  startingAmmo: 1000
-  ammoPerShot: 1
+  maxAmmo: 100
+  startingAmmo: 100
+  ammoPerShot: 18
   OnFire:
     m_PersistentCalls:
       m_Calls:
