@@ -14,8 +14,8 @@ TagManager:
   - PlayerDamageable
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - GunSaberDetector
   - Restricted
   - Player
   - Grabbable

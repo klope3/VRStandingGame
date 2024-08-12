@@ -76,3 +76,6 @@ crashlytics-build.properties
 test_BurstDebugInformation_DoNotShip/*
 /[Aa]ssets/BNG Framework/*
 /[Aa]ssets/TextMesh Pro/*
+/[Aa]ssets/_TerrainAutoUpgrade/*
+/[Aa]ssets/ProceduralLightning/*
+/[Aa]ssets/Gizmos/*
