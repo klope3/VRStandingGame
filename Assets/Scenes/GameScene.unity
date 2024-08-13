@@ -17898,7 +17898,6 @@ MonoBehaviour:
   detector: {fileID: 496638540}
   muzzlePoint: {fileID: 70467296}
   damage: 1
-  testVisual: {fileID: 0}
   OnFire:
     m_PersistentCalls:
       m_Calls:
