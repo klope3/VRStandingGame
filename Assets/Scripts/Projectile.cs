@@ -49,20 +49,7 @@ public class Projectile : MonoBehaviour
 
         if (hit)
         {
-            transform.position = rayHit.point;
-            HealthHandler health = rayHit.collider.GetComponent<HealthHandler>();
-            if (health != null)
-            {
-                health.AddHealth(-1 * damage);
-            }
-            Rigidbody body = rayHit.collider.GetComponent<Rigidbody>();
-            if (body != null)
-            {
-                body.AddForceAtPosition(movementVector * impactForce, rayHit.point, ForceMode.Impulse);
-            }
-            OnProjectileImpact?.Invoke(this, rayHit);
-            OnImpact?.Invoke();
-            hasImpacted = true;
+            DoImpact(rayHit);
         }
         else
         {
@@ -77,5 +64,36 @@ public class Projectile : MonoBehaviour
         lifeTimer = 0;
         deathTimer = 0;
         OnLaunch?.Invoke();
+    }
+
+    private void DoImpact(RaycastHit rayHit = new RaycastHit())
+    {
+        transform.position = rayHit.point;
+        Collider hitCollider = rayHit.collider;
+        if (hitCollider != null)
+        {
+            HealthHandler health = hitCollider.GetComponent<HealthHandler>();
+            if (health != null)
+            {
+                health.AddHealth(-1 * damage);
+            }
+            Rigidbody body = hitCollider.GetComponent<Rigidbody>();
+            if (body != null)
+            {
+                body.AddForceAtPosition(movementVector * impactForce, rayHit.point, ForceMode.Impulse);
+            }
+        }
+        OnProjectileImpact?.Invoke(this, rayHit);
+        OnImpact?.Invoke();
+        hasImpacted = true;
+    }
+
+    /// <summary>
+    /// Force impact behavior without requiring a collider to be hit.
+    /// Because there was no actual hit, a dummy RaycastHit will be substituted.
+    /// </summary>
+    public void SimulateImpact()
+    {
+        DoImpact();
     }
 }
