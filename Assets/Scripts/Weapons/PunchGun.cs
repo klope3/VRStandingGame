@@ -8,10 +8,6 @@ public class PunchGun : MonoBehaviour
         private float punchStrictness;
     [SerializeField, Tooltip("How far the muzzle needs to travel between frames to activate a shot.")] 
         private float punchTravel;
-    [SerializeField, Tooltip("How far the muzzle needs to be from the player to allow a show to be activated.")] 
-        private float punchDistance;
-    [SerializeField, Tooltip("The transform that will be used to measure punchDistance.")]
-        private Transform playerTrans;
     [SerializeField] private Transform muzzlePoint;
     [SerializeField] private ProjectileLauncher launcher;
     private Vector3 positionLastFrame;

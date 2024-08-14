@@ -8,18 +8,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private int damage;
     [SerializeField] private LayerMask affectedLayers;
-    //private float testTimer;
     public UnityEvent OnExplode;
-
-    private void Update()
-    {
-        //testTimer += Time.deltaTime;
-        //if (testTimer > 3)
-        //{
-        //    Explode();
-        //    testTimer = 0;
-        //}
-    }
 
     public void Explode()
     {

@@ -17,7 +17,6 @@ public class NearObjectDetector : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Detected {other.gameObject.name}");
         OnObjectDetected?.Invoke();
     }
 }
