@@ -82,6 +82,11 @@ public class Projectile : MonoBehaviour
             {
                 body.AddForceAtPosition(movementVector * impactForce, rayHit.point, ForceMode.Impulse);
             }
+            ProjectileImpactable impactable = hitCollider.GetComponent<ProjectileImpactable>();
+            if (impactable != null)
+            {
+                impactable.ReceiveImpact(this, rayHit);
+            }
         }
         OnProjectileImpact?.Invoke(this, rayHit);
         OnImpact?.Invoke();
