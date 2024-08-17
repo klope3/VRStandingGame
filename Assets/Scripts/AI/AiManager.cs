@@ -47,6 +47,12 @@ public class AiManager : MonoBehaviour
         OnSpawnEnemy?.Invoke();
     }
 
+    public void ResetAll()
+    {
+        aliveEnemies = 0;
+        spawnTimer = 0;
+    }
+
     private void Health_OnDied(HealthHandler health)
     {
         health.OnDied -= Health_OnDied;

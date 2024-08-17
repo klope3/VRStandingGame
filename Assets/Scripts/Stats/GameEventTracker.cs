@@ -40,6 +40,12 @@ public class GameEventTracker : MonoBehaviour
         OnEventRecorded?.Invoke();
     }
 
+    public void ResetStats()
+    {
+        playerDamages = new List<GameEventInt>();
+        OnEventRecorded?.Invoke();
+    }
+
     private class GameEvent
     {
         public float time; //the time since game start when the event happened
