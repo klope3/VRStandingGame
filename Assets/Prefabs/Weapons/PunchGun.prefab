@@ -439,7 +439,7 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 0
   Grabtype: 0
-  GrabPhysics: 4
+  GrabPhysics: 0
   GrabMechanic: 0
   GrabSpeed: 7.5
   RemoteGrabbable: 1
@@ -532,8 +532,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchStrictness: 0.8
   punchTravel: 0.04
-  punchDistance: 0
-  playerTrans: {fileID: 0}
   muzzlePoint: {fileID: 7454868268772985095}
   launcher: {fileID: 6259982799300096913}
 --- !u!1 &4987060036684695047
