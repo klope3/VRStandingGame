@@ -58,4 +58,9 @@ public class EnemyPositionProvider : MonoBehaviour
     {
         arcSpan = span;
     }
+
+    public void SetMaxDistance(float distance)
+    {
+        maxDistFromCenter = distance;
+    }
 }

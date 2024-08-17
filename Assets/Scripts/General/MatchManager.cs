@@ -19,6 +19,7 @@ public class MatchManager : MonoBehaviour
     private int nextMatchMaxEnemies;
     private float nextMatchArcSpan;
     private float nextMatchSpawnInterval;
+    private float nextMatchMaxEnemyDistance;
     public UnityEvent OnCountdownStart;
     public UnityEvent OnCountdownSecond; //each time a second elapses in the countdown
     public UnityEvent OnMatchStart;
@@ -38,6 +39,11 @@ public class MatchManager : MonoBehaviour
         {
             return matchMinutes * 60;
         }
+    }
+
+    private void Awake()
+    {
+        SetNextMatchDifficulty(0);
     }
 
     private void Update()
@@ -99,6 +105,7 @@ public class MatchManager : MonoBehaviour
     private void ApplyDifficulty()
     {
         positionProvider.SetArcSpan(nextMatchArcSpan);
+        positionProvider.SetMaxDistance(nextMatchMaxEnemyDistance);
         aiManager.SetMaxEnemies(nextMatchMaxEnemies);
         aiManager.SetSpawnInterval(nextMatchSpawnInterval);
     }
@@ -158,5 +165,6 @@ public class MatchManager : MonoBehaviour
         nextMatchArcSpan = 30 * difficulty + 30;
         nextMatchMaxEnemies = Mathf.RoundToInt(1.7f * difficulty + 2);
         nextMatchSpawnInterval = -0.35f * difficulty + 5;
+        nextMatchMaxEnemyDistance = 1.1f * difficulty + 7;
     }
 }
