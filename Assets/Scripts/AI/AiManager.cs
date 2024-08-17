@@ -53,6 +53,16 @@ public class AiManager : MonoBehaviour
         spawnTimer = 0;
     }
 
+    public void SetMaxEnemies(int max)
+    {
+        maxEnemies = max;
+    }
+
+    public void SetSpawnInterval(float seconds)
+    {
+        enemySpawnTimer = seconds;
+    }
+
     private void Health_OnDied(HealthHandler health)
     {
         health.OnDied -= Health_OnDied;

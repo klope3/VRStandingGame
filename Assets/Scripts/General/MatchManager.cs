@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
 
 public class MatchManager : MonoBehaviour
 {
     [SerializeField] private GameEventTracker eventTracker;
     [SerializeField] private AiManager aiManager;
+    [SerializeField] private EnemyPositionProvider positionProvider;
     [SerializeField] private Transform[] enemyPools;
     [SerializeField] private float matchMinutes;
     private readonly float countdownSeconds = 3;
@@ -14,6 +16,9 @@ public class MatchManager : MonoBehaviour
     private bool isCountingDown;
     private float matchTimer;
     private bool isMatchActive;
+    private int nextMatchMaxEnemies;
+    private float nextMatchArcSpan;
+    private float nextMatchSpawnInterval;
     public UnityEvent OnCountdownStart;
     public UnityEvent OnCountdownSecond; //each time a second elapses in the countdown
     public UnityEvent OnMatchStart;
@@ -87,7 +92,15 @@ public class MatchManager : MonoBehaviour
         isMatchActive = true;
         matchTimer = 0;
         aiManager.enabled = true;
+        ApplyDifficulty();
         OnMatchStart?.Invoke();
+    }
+
+    private void ApplyDifficulty()
+    {
+        positionProvider.SetArcSpan(nextMatchArcSpan);
+        aiManager.SetMaxEnemies(nextMatchMaxEnemies);
+        aiManager.SetSpawnInterval(nextMatchSpawnInterval);
     }
 
     public void SetMatchPaused(bool b)
@@ -130,5 +143,20 @@ public class MatchManager : MonoBehaviour
             }
         }
         return objects;
+    }
+
+    public void OnDifficultyKnobChange(float angle)
+    {
+        float angleToUse = angle > 180 ? angle - 360 + 90 : angle + 90;
+        int difficulty = Mathf.RoundToInt(angleToUse / 180 * 10);
+        SetNextMatchDifficulty(difficulty);
+    }
+
+    [Button]
+    private void SetNextMatchDifficulty(int difficulty)
+    {
+        nextMatchArcSpan = 30 * difficulty + 30;
+        nextMatchMaxEnemies = Mathf.RoundToInt(1.7f * difficulty + 2);
+        nextMatchSpawnInterval = -0.35f * difficulty + 5;
     }
 }

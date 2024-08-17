@@ -53,4 +53,9 @@ public class EnemyPositionProvider : MonoBehaviour
         target.localPosition = new Vector3(0, 0, Random.Range(minDistFromCenter, maxDistFromCenter));
         return target.position + Vector3.up * Random.Range(minHeight, maxHeight);
     }
+
+    public void SetArcSpan(float span)
+    {
+        arcSpan = span;
+    }
 }
