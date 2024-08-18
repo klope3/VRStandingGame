@@ -66,9 +66,12 @@ public class Projectile : MonoBehaviour
         OnLaunch?.Invoke();
     }
 
-    private void DoImpact(RaycastHit rayHit = new RaycastHit())
+    private void DoImpact(RaycastHit rayHit = new RaycastHit(), bool moveToPoint = true)
     {
-        transform.position = rayHit.point;
+        if (moveToPoint)
+        {
+            transform.position = rayHit.point;
+        }
         Collider hitCollider = rayHit.collider;
         if (hitCollider != null)
         {
@@ -99,6 +102,6 @@ public class Projectile : MonoBehaviour
     /// </summary>
     public void SimulateImpact()
     {
-        DoImpact();
+        DoImpact(new RaycastHit(), false);
     }
 }

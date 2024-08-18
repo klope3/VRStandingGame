@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8a104b55c24774e8816daeb7978b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 20
+  radius: 1
   damage: 1
   affectedLayers:
     serializedVersion: 2
