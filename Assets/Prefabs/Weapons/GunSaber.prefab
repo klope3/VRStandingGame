@@ -444,10 +444,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd3e6ac1645c5f4092434bc13745f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFireDist: 0.09
-  detector: {fileID: 7796862086249790339}
+  unitsPerSecond: 8
+  detector: {fileID: 3047560887506829657}
+  detectorVectorTolerance: 0.8
   muzzlePoint: {fileID: 7454868268772985095}
   damage: 1
+  shotsPerSecond: 4
   OnFire:
     m_PersistentCalls:
       m_Calls:
@@ -565,7 +567,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1983
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -586,7 +588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saber: {fileID: 2815045566550147224}
-  activeFrames: 2
 --- !u!1001 &131848822888092084
 PrefabInstance:
   m_ObjectHideFlags: 0

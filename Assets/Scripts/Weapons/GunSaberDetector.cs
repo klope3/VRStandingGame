@@ -6,27 +6,14 @@ using BNG;
 public class GunSaberDetector : MonoBehaviour
 {
     [SerializeField] private GunSaber saber;
-    [SerializeField, Tooltip("When activated, how many frames to stay active for.")] 
-        private int activeFrames;
-    private int activeFramesLeft;
 
-    public void Activate()
+    public void OnTriggerEnter(Collider other)
     {
-        activeFramesLeft = activeFrames;
+        saber.TrackTransform(other.transform);
     }
 
-    private void Update()
+    public void OnTriggerExit(Collider other)
     {
-        if (activeFramesLeft > 0)
-        {
-            activeFramesLeft--;
-        }
-    }
-
-    public void OnTriggerStay(Collider other)
-    {
-        if (activeFramesLeft <= 0) return;
-
-        saber.ShootTarget(other);
+        saber.UntrackTransform(other.transform);
     }
 }
