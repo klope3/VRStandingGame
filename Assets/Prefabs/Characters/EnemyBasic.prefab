@@ -291,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2579443351844998970}
   - component: {fileID: 2383409984137646236}
+  - component: {fileID: 5739820441558714769}
   m_Layer: 0
   m_Name: launcher
   m_TagString: Untagged
@@ -329,20 +330,37 @@ MonoBehaviour:
   shotsPerSecond: 3
   inaccuracy: 0
   fireType: 1
-  ammoType: 0
-  rechargePerSecond: 0
+  ammoReserve: {fileID: 5739820441558714769}
   muzzleLocation: {fileID: 2579443351844998970}
   projectilePool: {fileID: 0}
   findPool: 1
   findPoolTag: EnemyLaserPool
   showAimLine: 0
-  maxAmmo: 1
-  startingAmmo: 1
   ammoPerShot: 0
   OnFire:
     m_PersistentCalls:
       m_Calls: []
   OnAmmoChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5739820441558714769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795870059777528460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c8bca7d55759443817e8fa94e4b4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: ammo
+  reserveType: 0
+  rechargePerSecond: 0
+  maxAmount: 0
+  startingAmount: 0
+  OnAmountChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5743948127283346568

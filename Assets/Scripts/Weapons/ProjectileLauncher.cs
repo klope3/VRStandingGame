@@ -8,8 +8,7 @@ public class ProjectileLauncher : MonoBehaviour
     [SerializeField, Min(0.001f)] private float shotsPerSecond;
     [SerializeField, Range(0, 1)] private float inaccuracy;
     [SerializeField] private FireType fireType;
-    [SerializeField] private AmmoType ammoType;
-    [SerializeField, Min(1), Tooltip("Only used for 'recharge' ammo type.")] private float rechargePerSecond;
+    [SerializeField] private DepletableReserve ammoReserve;
     [SerializeField] private Transform muzzleLocation;
     [SerializeField] private GameObjectPool projectilePool;
     [SerializeField, Tooltip("Whether to try and find a pool on Awake. " +
@@ -20,31 +19,12 @@ public class ProjectileLauncher : MonoBehaviour
         "Does nothing if findPool is false.")]
     private string findPoolTag;
     [SerializeField] private bool showAimLine;
-    [SerializeField, Min(1)] private float maxAmmo;
-    [SerializeField, Min(1)] private float startingAmmo;
     [SerializeField, Min(0)] private float ammoPerShot;
-    private float currentAmmo;
     private float triggerTimer;
     private bool wasTriggerPulled; //last frame
     private bool isTriggerPulled; //this frame
     public UnityEvent OnFire;
     public UnityEvent OnAmmoChange;
-
-    public float CurAmmo
-    {
-        get
-        {
-            return currentAmmo;
-        }
-    }
-
-    public float MaxAmmo
-    {
-        get
-        {
-            return maxAmmo;
-        }
-    }
 
     public enum FireType
     {
@@ -52,16 +32,8 @@ public class ProjectileLauncher : MonoBehaviour
         Automatic
     }
 
-    public enum AmmoType
-    {
-        Normal,
-        Recharge
-    }
-
     private void Awake()
     {
-        AddAmmo(startingAmmo);
-
         if (findPool)
         {
             string findError = $"The weapon attached to {gameObject.name} couldn't find a GameObjectPool with the tag {findPoolTag}!";
@@ -80,13 +52,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void Update()
     {
-        if (ammoType == AmmoType.Recharge)
-        {
-            float amountToRecharge = rechargePerSecond * Time.deltaTime;
-            AddAmmo(amountToRecharge);
-        }
         TryFire();
-
         wasTriggerPulled = isTriggerPulled;
     }
 
@@ -97,14 +63,6 @@ public class ProjectileLauncher : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(muzzleLocation.position, muzzleLocation.position + muzzleLocation.forward * 1000);
         }
-    }
-
-    public void AddAmmo(float amount)
-    {
-        float prevAmmo = currentAmmo;
-        currentAmmo = Mathf.Clamp(currentAmmo + amount, 0, maxAmmo);
-
-        if (prevAmmo != currentAmmo) OnAmmoChange?.Invoke();
     }
 
     public void SetTrigger(bool b)
@@ -123,7 +81,7 @@ public class ProjectileLauncher : MonoBehaviour
         bool canAutoFire = isTriggerPulled && triggerTimerReady;
         bool canSemiAutoFire = !wasTriggerPulled && isTriggerPulled && triggerTimerReady;
         bool isFiringAllowedByTrigger = (canAutoFire && fireType == FireType.Automatic) || (canSemiAutoFire && fireType == FireType.SemiAutomatic);
-        bool enoughAmmo = currentAmmo >= ammoPerShot;
+        bool enoughAmmo = ammoReserve.CurAmount >= ammoPerShot;
 
         if (isFiringAllowedByTrigger && enoughAmmo)
         {
@@ -140,7 +98,7 @@ public class ProjectileLauncher : MonoBehaviour
         proj.Launch(projVector);
         proj.transform.forward = projVector;
         triggerTimer = 0;
-        AddAmmo(-1 * ammoPerShot);
+        ammoReserve.AddAmount(-1 * ammoPerShot);
 
         OnFire?.Invoke();
     }

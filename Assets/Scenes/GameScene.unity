@@ -13203,6 +13203,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900685478}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &904818575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2224713773768319487, guid: 7e004a08bb810404da3cc1339375d7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077484460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &904818578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4668717878494197710, guid: 7e004a08bb810404da3cc1339375d7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077484460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904818575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &904818580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904818575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f8bffe05faf8541843d46ebb03e82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 904818578}
+  reserve: {fileID: 1351950539}
 --- !u!1 &907849124
 GameObject:
   m_ObjectHideFlags: 0
@@ -20372,6 +20404,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350871356}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1351950522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077484460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1351950539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351950522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c8bca7d55759443817e8fa94e4b4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: ammo
+  reserveType: 1
+  rechargePerSecond: 68
+  maxAmount: 100
+  startingAmount: 100
+  OnAmountChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1354557246
 GameObject:
   m_ObjectHideFlags: 0
@@ -32217,6 +32275,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
         type: 3}
+      propertyPath: ammoReserve
+      value: 
+      objectReference: {fileID: 1351950539}
+    - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 1731659071}
@@ -32275,10 +32338,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: PistolNEW 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 89984247446503590, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6024261396410624980, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1351950539}
+    - targetCorrespondingSourceObject: {fileID: 2224713773768319487, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 904818580}
   m_SourcePrefab: {fileID: 100100000, guid: 7e004a08bb810404da3cc1339375d7e5, type: 3}
 --- !u!1 &2088487935
 GameObject:
