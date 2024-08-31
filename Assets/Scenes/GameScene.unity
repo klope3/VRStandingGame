@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 1779221637786056268, guid: 849182f0afb38b14dae7e3dad2c881fb,
+  prefabToPool: {fileID: 6154431196613808654, guid: 849182f0afb38b14dae7e3dad2c881fb,
     type: 3}
   startingCount: 10
 --- !u!4 &16776651
@@ -25903,7 +25903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 7513054260698520864, guid: 739be228262c4ef4090c8a57937de2c7,
+  prefabToPool: {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7,
     type: 3}
   startingCount: 10
 --- !u!4 &1731659072
@@ -29560,7 +29560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 7513054260698520864, guid: 33dcb1e2ee248d6408edbc857c2c226a,
+  prefabToPool: {fileID: 3552920916789510267, guid: 33dcb1e2ee248d6408edbc857c2c226a,
     type: 3}
   startingCount: 10
 --- !u!4 &1958161205
@@ -30941,7 +30941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 7513054260698520864, guid: e9de514ebc2be634cba680d44a4b7a0a,
+  prefabToPool: {fileID: -7148554095413727423, guid: e9de514ebc2be634cba680d44a4b7a0a,
     type: 3}
   startingCount: 10
 --- !u!4 &2017848252

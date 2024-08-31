@@ -37,7 +37,7 @@ public class AiManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject go = enemyPool.GetPooledObject();
+        GameObjectPoolable go = enemyPool.GetPooledObject();
         HealthHandler health = go.GetComponent<HealthHandler>();
         health.ResetHealth();
         health.OnDied += Health_OnDied;

@@ -4,39 +4,37 @@ using UnityEngine;
 
 public class GameObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject prefabToPool;
+    [SerializeField] private GameObjectPoolable prefabToPool;
     [SerializeField] private int startingCount;
-    private List<GameObject> pooledObjects;
+    private List<GameObjectPoolable> pooledObjects;
+    public delegate void CreateEvent(GameObjectPoolable created);
+    public event CreateEvent OnObjectCreated;
 
     private void Awake()
     {
-        pooledObjects = new List<GameObject>();
+        pooledObjects = new List<GameObjectPoolable>();
         for (int i = 0; i < startingCount; i++)
         {
             CreatePooledObject();
         }
     }
 
-    public GameObject GetPooledObject(bool setObjectActive = true)
+    public GameObjectPoolable GetPooledObject()
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
-        {
-            GameObject obj = pooledObjects[i];
-            if (!obj.activeSelf)
-            {
-                if (setObjectActive) obj.SetActive(true);
-                return obj;
-            } 
-        }
+        GameObjectPoolable firstAvailable = pooledObjects.Find(obj => obj.IsAvailable);
+        if (firstAvailable == null) return CreatePooledObject();
 
-        return CreatePooledObject();
+        firstAvailable.SetIsAvailable(false);
+        return firstAvailable;
     }
 
-    private GameObject CreatePooledObject()
+    private GameObjectPoolable CreatePooledObject()
     {
-        GameObject go = Instantiate(prefabToPool, transform);
-        go.SetActive(false);
-        pooledObjects.Add(go);
-        return go;
+        GameObjectPoolable created = Instantiate(prefabToPool, transform);
+        created.SetIsAvailable(true);
+        created.gameObject.SetActive(false);
+        pooledObjects.Add(created);
+        OnObjectCreated?.Invoke(created);
+        return created;
     }
 }

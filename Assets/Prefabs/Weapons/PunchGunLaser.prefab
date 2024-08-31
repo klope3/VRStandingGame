@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7564257102165102560}
   - component: {fileID: 2859486013323844668}
   - component: {fileID: -5018109188511854186}
+  - component: {fileID: -7148554095413727423}
   m_Layer: 0
   m_Name: PunchGunLaser
   m_TagString: Untagged
@@ -150,6 +151,21 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7148554095413727423}
+        m_TargetAssemblyTypeName: GameObjectPoolable, Assembly-CSharp
+        m_MethodName: SetIsAvailable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   OnLaunch:
     m_PersistentCalls:
@@ -267,6 +283,25 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-7148554095413727423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513054260698520864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb75f3f59336844697406df9c582815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setActiveOnPull: 1
+  OnReturnToPool:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPulledFromPool:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2104214955556480934
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -87,7 +87,7 @@ public class AiBrain : MonoBehaviour
         }
     }
 
-    private void ResetAttackTimer()
+    public void ResetAttackTimer()
     {
         attackTimer = attackInterval + Random.Range(0, attackIntervalVariance);
     }

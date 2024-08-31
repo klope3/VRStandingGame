@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     private float deathTimer;
     private bool hasImpacted;
     public UnityEvent OnImpact;
+    public UnityEvent OnDie; //when the lifeTimer or deathTimer run out
     public UnityEvent OnLaunch;
     public delegate void ProjectileImpact(Projectile projectile, RaycastHit rayHit);
     public event ProjectileImpact OnProjectileImpact;
@@ -29,6 +30,7 @@ public class Projectile : MonoBehaviour
             deathTimer += Time.deltaTime;
             if (deathTimer > deathTime)
             {
+                OnDie?.Invoke();
                 gameObject.SetActive(false);
             }
             return;
@@ -37,6 +39,7 @@ public class Projectile : MonoBehaviour
         lifeTimer += Time.deltaTime;
         if (lifeTimer > lifespan)
         {
+            OnDie?.Invoke();
             gameObject.SetActive(false);
             return;
         }

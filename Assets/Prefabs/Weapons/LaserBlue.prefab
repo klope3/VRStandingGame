@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7564257102165102560}
   - component: {fileID: 2859486013323844668}
   - component: {fileID: -5018109188511854186}
+  - component: {fileID: 338951687950629230}
   m_Layer: 0
   m_Name: LaserBlue
   m_TagString: Untagged
@@ -69,24 +70,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLaunch:
+  OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 338951687950629230}
+        m_TargetAssemblyTypeName: GameObjectPoolable, Assembly-CSharp
+        m_MethodName: SetIsAvailable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -96,6 +85,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  OnLaunch:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!96 &-5018109188511854186
 TrailRenderer:
   serializedVersion: 3
@@ -209,6 +201,25 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &338951687950629230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513054260698520864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb75f3f59336844697406df9c582815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setActiveOnPull: 1
+  OnReturnToPool:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPulledFromPool:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8555217601068866692
 PrefabInstance:
   m_ObjectHideFlags: 0

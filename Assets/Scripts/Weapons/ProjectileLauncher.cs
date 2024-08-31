@@ -133,8 +133,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void Fire()
     {
-        GameObject pooledProj = projectilePool.GetPooledObject();
-        pooledProj.SetActive(true);
+        GameObjectPoolable pooledProj = projectilePool.GetPooledObject();
         pooledProj.transform.position = muzzleLocation.position;
         Projectile proj = pooledProj.GetComponent<Projectile>();
         Vector3 projVector = GetInaccurateVector();
