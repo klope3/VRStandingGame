@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 6154431196613808654, guid: 849182f0afb38b14dae7e3dad2c881fb,
-    type: 3}
+  prefabsToPool:
+  - {fileID: 6154431196613808654, guid: 849182f0afb38b14dae7e3dad2c881fb, type: 3}
   startingCount: 10
 --- !u!4 &16776651
 Transform:
@@ -451,6 +451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnemies: 3
   enemySpawnTimer: 5
+  tempEnemyPf: {fileID: 6154431196613808654, guid: 849182f0afb38b14dae7e3dad2c881fb,
+    type: 3}
   enemyPool: {fileID: 16776650}
   positionProvider: {fileID: 227797281}
   OnSpawnEnemy:
@@ -11490,9 +11492,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
+      propertyPath: launcherData
+      value: 
+      objectReference: {fileID: 11400000, guid: 902f27f5fb2704948bf6e2500a16ab60,
+        type: 2}
+    - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
       propertyPath: projectilePool
       value: 
-      objectReference: {fileID: 2017848251}
+      objectReference: {fileID: 1731659071}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16781,8 +16789,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1731659072}
-  - {fileID: 2017848252}
-  - {fileID: 1958161205}
   - {fileID: 16776651}
   m_Father: {fileID: 178629477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21575,9 +21581,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
+      propertyPath: launcherData
+      value: 
+      objectReference: {fileID: 11400000, guid: 902f27f5fb2704948bf6e2500a16ab60,
+        type: 2}
+    - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
       propertyPath: projectilePool
       value: 
-      objectReference: {fileID: 2017848251}
+      objectReference: {fileID: 1731659071}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25944,7 +25956,7 @@ GameObject:
   - component: {fileID: 1731659071}
   m_Layer: 0
   m_Name: LaserPool
-  m_TagString: Untagged
+  m_TagString: LaserPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25961,8 +25973,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7,
-    type: 3}
+  prefabsToPool:
+  - {fileID: -7148554095413727423, guid: e9de514ebc2be634cba680d44a4b7a0a, type: 3}
+  - {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7, type: 3}
+  - {fileID: 3552920916789510267, guid: 33dcb1e2ee248d6408edbc857c2c226a, type: 3}
   startingCount: 10
 --- !u!4 &1731659072
 Transform:
@@ -29589,53 +29603,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957028668}
   m_CullTransparentMesh: 0
---- !u!1 &1958161203
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1958161205}
-  - component: {fileID: 1958161204}
-  m_Layer: 0
-  m_Name: EnemyLaserPool
-  m_TagString: EnemyLaserPool
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1958161204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958161203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToPool: {fileID: 3552920916789510267, guid: 33dcb1e2ee248d6408edbc857c2c226a,
-    type: 3}
-  startingCount: 10
---- !u!4 &1958161205
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958161203}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1132255025}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960556085
 GameObject:
   m_ObjectHideFlags: 0
@@ -30970,53 +30937,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014250142}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2017848250
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2017848252}
-  - component: {fileID: 2017848251}
-  m_Layer: 0
-  m_Name: PunchGunPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2017848251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017848250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4476f508397e11b4bbe388143a2bb6e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToPool: {fileID: -7148554095413727423, guid: e9de514ebc2be634cba680d44a4b7a0a,
-    type: 3}
-  startingCount: 10
---- !u!4 &2017848252
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017848250}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1132255025}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022472882
 GameObject:
   m_ObjectHideFlags: 0
@@ -32278,6 +32198,12 @@ PrefabInstance:
       propertyPath: ammoReserve
       value: 
       objectReference: {fileID: 1351950539}
+    - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
+        type: 3}
+      propertyPath: launcherData
+      value: 
+      objectReference: {fileID: 11400000, guid: bea702c60ae39324a9fb11076b3e3ada,
+        type: 2}
     - target: {fileID: 4756773088683344618, guid: 7e004a08bb810404da3cc1339375d7e5,
         type: 3}
       propertyPath: projectilePool

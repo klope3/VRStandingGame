@@ -327,16 +327,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9bcaca6c94ff4386274396db32ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotsPerSecond: 3
-  inaccuracy: 0
-  fireType: 1
+  launcherData: {fileID: 11400000, guid: b1ae00f7e715f4043bf233916734c0c9, type: 2}
   ammoReserve: {fileID: 5739820441558714769}
   muzzleLocation: {fileID: 2579443351844998970}
   projectilePool: {fileID: 0}
   findPool: 1
-  findPoolTag: EnemyLaserPool
+  findPoolTag: LaserPool
   showAimLine: 0
-  ammoPerShot: 0
   OnFire:
     m_PersistentCalls:
       m_Calls: []

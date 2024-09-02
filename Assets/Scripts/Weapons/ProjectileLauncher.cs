@@ -5,9 +5,7 @@ using UnityEngine.Events;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField, Min(0.001f)] private float shotsPerSecond;
-    [SerializeField, Range(0, 1)] private float inaccuracy;
-    [SerializeField] private FireType fireType;
+    [SerializeField] private ProjectileLauncherSO launcherData;
     [SerializeField] private DepletableReserve ammoReserve;
     [SerializeField] private Transform muzzleLocation;
     [SerializeField] private GameObjectPool projectilePool;
@@ -19,18 +17,11 @@ public class ProjectileLauncher : MonoBehaviour
         "Does nothing if findPool is false.")]
     private string findPoolTag;
     [SerializeField] private bool showAimLine;
-    [SerializeField, Min(0)] private float ammoPerShot;
     private float triggerTimer;
     private bool wasTriggerPulled; //last frame
     private bool isTriggerPulled; //this frame
     public UnityEvent OnFire;
     public UnityEvent OnAmmoChange;
-
-    public enum FireType
-    {
-        SemiAutomatic,
-        Automatic
-    }
 
     private void Awake()
     {
@@ -72,7 +63,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void TryFire()
     {
-        bool triggerTimerReady = triggerTimer >= 1 / shotsPerSecond;
+        bool triggerTimerReady = triggerTimer >= 1 / launcherData.ShotsPerSecond;
         if (!triggerTimerReady)
         {
             triggerTimer += Time.deltaTime;
@@ -80,8 +71,8 @@ public class ProjectileLauncher : MonoBehaviour
 
         bool canAutoFire = isTriggerPulled && triggerTimerReady;
         bool canSemiAutoFire = !wasTriggerPulled && isTriggerPulled && triggerTimerReady;
-        bool isFiringAllowedByTrigger = (canAutoFire && fireType == FireType.Automatic) || (canSemiAutoFire && fireType == FireType.SemiAutomatic);
-        bool enoughAmmo = ammoReserve.CurAmount >= ammoPerShot;
+        bool isFiringAllowedByTrigger = (canAutoFire && launcherData.FiringType == ProjectileLauncherSO.FireType.Automatic) || (canSemiAutoFire && launcherData.FiringType == ProjectileLauncherSO.FireType.SemiAutomatic);
+        bool enoughAmmo = ammoReserve.CurAmount >= launcherData.AmmoPerShot;
 
         if (isFiringAllowedByTrigger && enoughAmmo)
         {
@@ -91,21 +82,21 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void Fire()
     {
-        GameObjectPoolable pooledProj = projectilePool.GetPooledObject();
+        GameObjectPoolable pooledProj = projectilePool.GetPooledObject(launcherData.ProjectilePf);
         pooledProj.transform.position = muzzleLocation.position;
         Projectile proj = pooledProj.GetComponent<Projectile>();
         Vector3 projVector = GetInaccurateVector();
         proj.Launch(projVector);
         proj.transform.forward = projVector;
         triggerTimer = 0;
-        ammoReserve.AddAmount(-1 * ammoPerShot);
+        ammoReserve.AddAmount(-1 * launcherData.AmmoPerShot);
 
         OnFire?.Invoke();
     }
 
     private Vector3 GetInaccurateVector()
     {
-        Vector3 randOffset = Random.insideUnitCircle * inaccuracy * 0.001f;
+        Vector3 randOffset = Random.insideUnitCircle * launcherData.Inaccuracy * 0.001f;
         return (muzzleLocation.right * randOffset.x + muzzleLocation.up * randOffset.y + muzzleLocation.forward * 0.001f).normalized;
     }
 }

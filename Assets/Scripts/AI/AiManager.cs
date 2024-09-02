@@ -11,6 +11,7 @@ public class AiManager : MonoBehaviour
         private int maxEnemies; 
     [SerializeField, Tooltip("The number of seconds between enemy spawns.")] 
         private float enemySpawnTimer;
+    [SerializeField] private GameObjectPoolable tempEnemyPf; //this will be removed once we're actually using more than one enemy type
     [SerializeField] private GameObjectPool enemyPool;
     [SerializeField] private EnemyPositionProvider positionProvider;
     private float spawnTimer;
@@ -37,7 +38,7 @@ public class AiManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObjectPoolable go = enemyPool.GetPooledObject();
+        GameObjectPoolable go = enemyPool.GetPooledObject(tempEnemyPf);
         HealthHandler health = go.GetComponent<HealthHandler>();
         health.ResetHealth();
         health.OnDied += Health_OnDied;

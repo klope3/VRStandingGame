@@ -1,39 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObjectPoolable prefabToPool;
+    [SerializeField] private GameObjectPoolable[] prefabsToPool;
     [SerializeField] private int startingCount;
-    private List<GameObjectPoolable> pooledObjects;
+    private Dictionary<GameObjectPoolable, List<GameObjectPoolable>> pooledObjects; //key = prefab used to instantiate, value = list of objects instantiated from that prefab
     public delegate void CreateEvent(GameObjectPoolable created);
     public event CreateEvent OnObjectCreated;
 
     private void Awake()
     {
-        pooledObjects = new List<GameObjectPoolable>();
-        for (int i = 0; i < startingCount; i++)
+        pooledObjects = new Dictionary<GameObjectPoolable, List<GameObjectPoolable>>();
+        for (int i = 0; i < prefabsToPool.Length; i++)
         {
-            CreatePooledObject();
+            List<GameObjectPoolable> pooled = new List<GameObjectPoolable>();
+            for (int j = 0; j < startingCount; j++)
+            {
+                pooled.Add(CreatePooledObject(prefabsToPool[i]));
+            }
+            pooledObjects.Add(prefabsToPool[i], pooled);
         }
     }
 
-    public GameObjectPoolable GetPooledObject()
+    public GameObjectPoolable GetPooledObject(GameObjectPoolable requestedPrefab)
     {
-        GameObjectPoolable firstAvailable = pooledObjects.Find(obj => obj.IsAvailable);
-        if (firstAvailable == null) return CreatePooledObject();
+        if (pooledObjects.Count == 0 || !pooledObjects.ContainsKey(requestedPrefab))
+        {
+            throw new System.Exception($"The requested prefab '{requestedPrefab.name} was not pooled by this object pool!");
+        }
+
+        List<GameObjectPoolable> matchingObjects = pooledObjects[requestedPrefab];
+        GameObjectPoolable firstAvailable = matchingObjects.FirstOrDefault(obj => obj.IsAvailable);
+        if (firstAvailable == null)
+        {
+            GameObjectPoolable created = CreatePooledObject(requestedPrefab);
+            created.SetIsAvailable(false);
+            return created;
+        }
 
         firstAvailable.SetIsAvailable(false);
         return firstAvailable;
     }
 
-    private GameObjectPoolable CreatePooledObject()
+    private GameObjectPoolable CreatePooledObject(GameObjectPoolable prefab)
     {
-        GameObjectPoolable created = Instantiate(prefabToPool, transform);
+        GameObjectPoolable created = Instantiate(prefab, transform);
         created.SetIsAvailable(true);
         created.gameObject.SetActive(false);
-        pooledObjects.Add(created);
         OnObjectCreated?.Invoke(created);
         return created;
     }
