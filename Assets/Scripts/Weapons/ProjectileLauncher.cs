@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField] private ProjectileLauncherSO launcherData;
+    [SerializeField] public ProjectileLauncherSO launcherData;
     [SerializeField] private DepletableReserve ammoReserve;
     [SerializeField] private Transform muzzleLocation;
     [SerializeField] private GameObjectPool projectilePool;

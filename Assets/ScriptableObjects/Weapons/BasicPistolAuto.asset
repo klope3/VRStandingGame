@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7225dd64e7d19c478888fab44367a84, type: 3}
+  m_Name: BasicPistolAuto
+  m_EditorClassIdentifier: 
+  shotsPerSecond: 30
+  inaccuracy: 0.02
+  fireType: 1
+  projectilePf: {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7,
+    type: 3}
+  ammoPerShot: 6
