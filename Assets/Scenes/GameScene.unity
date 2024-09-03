@@ -26005,6 +26005,7 @@ MonoBehaviour:
   - {fileID: -7148554095413727423, guid: e9de514ebc2be634cba680d44a4b7a0a, type: 3}
   - {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7, type: 3}
   - {fileID: 3552920916789510267, guid: 33dcb1e2ee248d6408edbc857c2c226a, type: 3}
+  - {fileID: 338951687950629230, guid: 390df931d6ae9c843b0b927b5da6381f, type: 3}
   startingCount: 10
 --- !u!4 &1731659072
 Transform:

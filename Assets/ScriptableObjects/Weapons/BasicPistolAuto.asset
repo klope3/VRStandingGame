@@ -15,6 +15,6 @@ MonoBehaviour:
   shotsPerSecond: 30
   inaccuracy: 0.02
   fireType: 1
-  projectilePf: {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7,
+  projectilePf: {fileID: 338951687950629230, guid: 390df931d6ae9c843b0b927b5da6381f,
     type: 3}
   ammoPerShot: 6
