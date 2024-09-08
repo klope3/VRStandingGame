@@ -93,11 +93,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2286727465707389001}
   - component: {fileID: 2538423483007518664}
-  - component: {fileID: 1574936061137046266}
   - component: {fileID: 2709017624481778769}
   - component: {fileID: 8294567747545051997}
   - component: {fileID: 6985885986503586613}
   - component: {fileID: 6154431196613808654}
+  - component: {fileID: -7638794482757868417}
+  - component: {fileID: 724322593948065575}
+  - component: {fileID: 6341210228103012822}
   m_Layer: 6
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -151,30 +153,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1574936061137046266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779221637786056268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49eec14ba9afd38428898316b055643e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionProviderTag: EnemyPositionProvider
-  movement: {fileID: 2709017624481778769}
-  moveTimer: 5
-  maxAngleDeviance: 30
-  attackInterval: 5
-  attackIntervalVariance: 2
-  telegrapDuration: 1
-  attackDuration: 0.2
-  attackTargetTag: PlayerChest
-  lookingTransform: {fileID: 2286727465707389001}
-  laserPointer: {fileID: 8287910656960238064}
-  launcher: {fileID: 2383409984137646236}
 --- !u!114 &2709017624481778769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +247,7 @@ MonoBehaviour:
   OnPulledFromPool:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1574936061137046266}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AiBrain, Assembly-CSharp
         m_MethodName: ResetAttackTimer
         m_Mode: 1
@@ -281,6 +259,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-7638794482757868417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779221637786056268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95fbc9e9403b9146b77d1969393d28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternData: {fileID: 11400000, guid: 3a9ae42e099a89b469f6ac87ee079254, type: 2}
+  looping: 1
+--- !u!114 &724322593948065575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779221637786056268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34defd69f5116f44e913bb6cafef1752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTargetTag: PlayerChest
+  laserPointer: {fileID: 8287910656960238064}
+  launcher: {fileID: 2383409984137646236}
+  lookingTransform: {fileID: 2286727465707389001}
+  intervalPattern: {fileID: -7638794482757868417}
+  isAttacking: 0
+--- !u!114 &6341210228103012822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779221637786056268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9479a3a6329a1394488e2f186930e0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionProviderTag: EnemyPositionProvider
+  movement: {fileID: 2709017624481778769}
+  moveTimer: 5
+  maxAngleDeviance: 30
 --- !u!1 &2795870059777528460
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,8 +381,8 @@ MonoBehaviour:
   label: ammo
   reserveType: 0
   rechargePerSecond: 0
-  maxAmount: 0
-  startingAmount: 0
+  maxAmount: 100
+  startingAmount: 100
   OnAmountChange:
     m_PersistentCalls:
       m_Calls: []
