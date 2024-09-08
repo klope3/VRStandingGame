@@ -33,6 +33,9 @@ MonoBehaviour:
     - Name: length
       Entry: 4
       Data: 4
+    - Name: maxLengthVariance
+      Entry: 4
+      Data: 1
     - Name: name
       Entry: 1
       Data: idle
@@ -45,6 +48,9 @@ MonoBehaviour:
     - Name: length
       Entry: 4
       Data: 1
+    - Name: maxLengthVariance
+      Entry: 4
+      Data: 0
     - Name: name
       Entry: 1
       Data: telegraph
@@ -56,7 +62,10 @@ MonoBehaviour:
       Data: 3|Interval, Assembly-CSharp
     - Name: length
       Entry: 4
-      Data: 0.001
+      Data: 0.1
+    - Name: maxLengthVariance
+      Entry: 4
+      Data: 0
     - Name: name
       Entry: 1
       Data: attack
