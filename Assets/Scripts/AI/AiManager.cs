@@ -42,8 +42,14 @@ public class AiManager : MonoBehaviour
         HealthHandler health = go.GetComponent<HealthHandler>();
         health.ResetHealth();
         health.OnDied += Health_OnDied;
-        Vector3 position = positionProvider.GetRandPosition();
+
+        AiNavigationModule nav = go.GetComponent<AiNavigationModule>();
+        Vector3 position = nav.GetNextNavPosition();
         go.transform.position = position;
+
+        AiMovement movement = go.GetComponent<AiMovement>();
+        movement.SetNavTarget(position);
+
         aliveEnemies++;
         OnSpawnEnemy?.Invoke();
     }

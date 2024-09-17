@@ -28,10 +28,42 @@ public class EnemyPositionProvider : MonoBehaviour
 
     public Vector3 GetRandPosition()
     {
-        return CalcRandPosition(-0.5f * arcSpan, 0.5f * arcSpan);
+        return CalcRandPosition(-0.5f * arcSpan, 0.5f * arcSpan, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
     }
 
     public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance)
+    {
+        //Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
+        //transform.LookAt(flattenedRefPos);
+        //Vector3 euler = transform.localEulerAngles;
+        //float startingY = euler.y > 180 ? euler.y - 360 : euler.y;
+        //float deviatedMin = startingY - maxAngleDeviance;
+        //float deviatedMax = startingY + maxAngleDeviance;
+        //float arcMin = -0.5f * arcSpan;
+        //float arcMax = 0.5f * arcSpan;
+        //float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
+        //float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
+        CalcClampedDeviatedAngle(refPosition, maxAngleDeviance, out float clampMin, out float clampMax);
+        return CalcRandPosition(clampMin, clampMax, this.minDistFromCenter, this.maxDistFromCenter, this.minHeight, this.maxHeight);
+    }
+
+    public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance, float minDistFromCenter, float maxDistFromCenter, float minHeight, float maxHeight)
+    {
+        //Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
+        //transform.LookAt(flattenedRefPos);
+        //Vector3 euler = transform.localEulerAngles;
+        //float startingY = euler.y > 180 ? euler.y - 360 : euler.y;
+        //float deviatedMin = startingY - maxAngleDeviance;
+        //float deviatedMax = startingY + maxAngleDeviance;
+        //float arcMin = -0.5f * arcSpan;
+        //float arcMax = 0.5f * arcSpan;
+        //float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
+        //float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
+        CalcClampedDeviatedAngle(refPosition, maxAngleDeviance, out float clampMin, out float clampMax);
+        return CalcRandPosition(clampMin, clampMax, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
+    }
+
+    private void CalcClampedDeviatedAngle(Vector3 refPosition, float maxAngleDeviance, out float clampMin, out float clampMax)
     {
         Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
         transform.LookAt(flattenedRefPos);
@@ -41,12 +73,11 @@ public class EnemyPositionProvider : MonoBehaviour
         float deviatedMax = startingY + maxAngleDeviance;
         float arcMin = -0.5f * arcSpan;
         float arcMax = 0.5f * arcSpan;
-        float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
-        float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
-        return CalcRandPosition(clampMin, clampMax);
+        clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
+        clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
     }
 
-    private Vector3 CalcRandPosition(float randMin, float randMax)
+    private Vector3 CalcRandPosition(float randMin, float randMax, float minDistFromCenter, float maxDistFromCenter, float minHeight, float maxHeight)
     {
         Vector3 euler = transform.localEulerAngles;
         transform.localEulerAngles = new Vector3(euler.x, Random.Range(randMin, randMax), euler.z);

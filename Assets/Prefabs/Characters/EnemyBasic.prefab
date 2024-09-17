@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 1779221637786056268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.716, z: 1.93}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -286,10 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34defd69f5116f44e913bb6cafef1752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTargetTag: PlayerChest
-  lookingTransform: {fileID: 2286727465707389001}
   intervalPattern: {fileID: -7638794482757868417}
-  isAttacking: 0
   OnAttackStart:
     m_PersistentCalls:
       m_Calls:
@@ -390,6 +387,10 @@ MonoBehaviour:
   movement: {fileID: 2709017624481778769}
   moveTimer: 5
   maxAngleDeviance: 30
+  minDistFromCenter: 4
+  maxDistFromCenter: 18
+  minHeight: 0
+  maxHeight: 5
 --- !u!114 &5438885399875332298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimTargetTag: PlayerChest
   aimingTransform: {fileID: 2286727465707389001}
+  lockY: 0
 --- !u!1 &2795870059777528460
 GameObject:
   m_ObjectHideFlags: 0

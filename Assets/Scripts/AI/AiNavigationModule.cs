@@ -15,6 +15,11 @@ public class AiNavigationModule : MonoBehaviour
     [Tooltip("When choosing a new navTarget, the max angle away from its current position, relative to the world center.")]
     private float maxAngleDeviance;
 
+    [SerializeField] private float minDistFromCenter;
+    [SerializeField] private float maxDistFromCenter;
+    [SerializeField] private float minHeight;
+    [SerializeField] private float maxHeight;
+
     private EnemyPositionProvider positionProvider;
     private float timer;
 
@@ -37,8 +42,13 @@ public class AiNavigationModule : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            movement.SetNavTarget(positionProvider.GetRandPosition(transform.position, maxAngleDeviance));
+            movement.SetNavTarget(GetNextNavPosition());
             timer = moveTimer;
         }
+    }
+
+    public Vector3 GetNextNavPosition()
+    {
+        return positionProvider.GetRandPosition(transform.position, maxAngleDeviance, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
     }
 }
