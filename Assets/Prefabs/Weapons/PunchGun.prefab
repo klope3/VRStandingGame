@@ -185,16 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9bcaca6c94ff4386274396db32ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotsPerSecond: 3
-  inaccuracy: 0
-  fireType: 0
+  launcherData: {fileID: 0}
   ammoReserve: {fileID: 4377273185736334356}
   muzzleLocation: {fileID: 7454868268772985095}
   projectilePool: {fileID: 0}
   findPool: 0
   findPoolTag: 
   showAimLine: 1
-  ammoPerShot: 18
   OnFire:
     m_PersistentCalls:
       m_Calls:
@@ -549,7 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punchStrictness: 0.8
-  punchTravel: 0.04
+  punchSpeed: 3
   muzzlePoint: {fileID: 7454868268772985095}
   launcher: {fileID: 6259982799300096913}
 --- !u!1 &4987060036684695047
