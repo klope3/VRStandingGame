@@ -33,32 +33,12 @@ public class EnemyPositionProvider : MonoBehaviour
 
     public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance)
     {
-        //Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
-        //transform.LookAt(flattenedRefPos);
-        //Vector3 euler = transform.localEulerAngles;
-        //float startingY = euler.y > 180 ? euler.y - 360 : euler.y;
-        //float deviatedMin = startingY - maxAngleDeviance;
-        //float deviatedMax = startingY + maxAngleDeviance;
-        //float arcMin = -0.5f * arcSpan;
-        //float arcMax = 0.5f * arcSpan;
-        //float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
-        //float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
         CalcClampedDeviatedAngle(refPosition, maxAngleDeviance, out float clampMin, out float clampMax);
         return CalcRandPosition(clampMin, clampMax, this.minDistFromCenter, this.maxDistFromCenter, this.minHeight, this.maxHeight);
     }
 
     public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance, float minDistFromCenter, float maxDistFromCenter, float minHeight, float maxHeight)
     {
-        //Vector3 flattenedRefPos = new Vector3(refPosition.x, transform.position.y, refPosition.z);
-        //transform.LookAt(flattenedRefPos);
-        //Vector3 euler = transform.localEulerAngles;
-        //float startingY = euler.y > 180 ? euler.y - 360 : euler.y;
-        //float deviatedMin = startingY - maxAngleDeviance;
-        //float deviatedMax = startingY + maxAngleDeviance;
-        //float arcMin = -0.5f * arcSpan;
-        //float arcMax = 0.5f * arcSpan;
-        //float clampMin = deviatedMin > arcMin ? deviatedMin : arcMin;
-        //float clampMax = deviatedMax < arcMax ? deviatedMax : arcMax;
         CalcClampedDeviatedAngle(refPosition, maxAngleDeviance, out float clampMin, out float clampMax);
         return CalcRandPosition(clampMin, clampMax, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
     }

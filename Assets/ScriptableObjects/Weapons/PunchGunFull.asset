@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7225dd64e7d19c478888fab44367a84, type: 3}
-  m_Name: PunchGun
+  m_Name: PunchGunFull
   m_EditorClassIdentifier: 
-  shotsPerSecond: 50
+  shotsPerSecond: 3
   inaccuracy: 0
   fireType: 0
   projectilePf: {fileID: -7148554095413727423, guid: e9de514ebc2be634cba680d44a4b7a0a,

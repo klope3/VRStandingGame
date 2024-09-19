@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 6259982799300096913}
   - component: {fileID: 4377273185736334356}
   m_Layer: 10
-  m_Name: launcher
+  m_Name: fullLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9bcaca6c94ff4386274396db32ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launcherData: {fileID: 0}
+  launcherData: {fileID: 11400000, guid: 902f27f5fb2704948bf6e2500a16ab60, type: 2}
   ammoReserve: {fileID: 4377273185736334356}
   muzzleLocation: {fileID: 7454868268772985095}
   projectilePool: {fileID: 0}
@@ -410,6 +410,7 @@ Transform:
   - {fileID: 6635786716529183907}
   - {fileID: 3130030582410538467}
   - {fileID: 2795509311602831709}
+  - {fileID: 2341413397395225085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4028267663429777740
@@ -546,9 +547,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punchStrictness: 0.8
-  punchSpeed: 3
+  fullPunchSpeed: 0
+  lowPunchSpeed: 0
   muzzlePoint: {fileID: 7454868268772985095}
-  launcher: {fileID: 6259982799300096913}
+  fullPowerLauncher: {fileID: 6259982799300096913}
+  lowPowerLauncher: {fileID: 8767314176626840465}
+  shotsPerSecond: 3
 --- !u!1 &4987060036684695047
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +584,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4028267663429777735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8844053059059539307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2341413397395225085}
+  - component: {fileID: 8767314176626840465}
+  - component: {fileID: 1027579347047922460}
+  m_Layer: 10
+  m_Name: lowLauncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2341413397395225085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844053059059539307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4028267663429777735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8767314176626840465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844053059059539307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d9bcaca6c94ff4386274396db32ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launcherData: {fileID: 11400000, guid: 5f0c38008371ec144a6d54b7ec3dfd96, type: 2}
+  ammoReserve: {fileID: 1027579347047922460}
+  muzzleLocation: {fileID: 7454868268772985095}
+  projectilePool: {fileID: 0}
+  findPool: 0
+  findPoolTag: 
+  showAimLine: 1
+  OnFire:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 780588794460362279}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 490350808334963170}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAmmoChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1027579347047922460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844053059059539307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c8bca7d55759443817e8fa94e4b4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: ammo
+  reserveType: 1
+  rechargePerSecond: 68
+  maxAmount: 100
+  startingAmount: 100
+  OnAmountChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9001701462726260260
 GameObject:
   m_ObjectHideFlags: 0

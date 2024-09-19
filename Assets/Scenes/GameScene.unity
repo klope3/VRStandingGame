@@ -11513,6 +11513,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1833174595}
     m_Modifications:
+    - target: {fileID: 1719667706846415059, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: lowPunchSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719667706846415059, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: fullPunchSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4028267663429777732, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
       propertyPath: m_Name
@@ -11575,6 +11585,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 902f27f5fb2704948bf6e2500a16ab60,
         type: 2}
     - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: projectilePool
+      value: 
+      objectReference: {fileID: 1731659071}
+    - target: {fileID: 8767314176626840465, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
       propertyPath: projectilePool
       value: 
@@ -21631,6 +21646,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1833174595}
     m_Modifications:
+    - target: {fileID: 1719667706846415059, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: lowPunchSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719667706846415059, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: fullPunchSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4028267663429777732, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
       propertyPath: m_Name
@@ -21693,6 +21718,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 902f27f5fb2704948bf6e2500a16ab60,
         type: 2}
     - target: {fileID: 6259982799300096913, guid: efc6fb1afb0e12a4b927352a8d1f3191,
+        type: 3}
+      propertyPath: projectilePool
+      value: 
+      objectReference: {fileID: 1731659071}
+    - target: {fileID: 8767314176626840465, guid: efc6fb1afb0e12a4b927352a8d1f3191,
         type: 3}
       propertyPath: projectilePool
       value: 
@@ -26085,6 +26115,7 @@ MonoBehaviour:
   - {fileID: 338951687950629230, guid: 739be228262c4ef4090c8a57937de2c7, type: 3}
   - {fileID: 3552920916789510267, guid: 33dcb1e2ee248d6408edbc857c2c226a, type: 3}
   - {fileID: 338951687950629230, guid: 390df931d6ae9c843b0b927b5da6381f, type: 3}
+  - {fileID: -7148554095413727423, guid: 85316d00b31255e4ab0a2bb749197119, type: 3}
   startingCount: 10
 --- !u!4 &1731659072
 Transform:

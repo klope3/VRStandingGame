@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.7
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5927752526306774507
 MonoBehaviour:
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: -5018109188511854186}
   - component: {fileID: -7148554095413727423}
   m_Layer: 0
-  m_Name: PunchGunLaser
+  m_Name: PunchGunLaserLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.09630394
+        value: 0.059804916
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -363,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 3736509956585101066, guid: b6881d36206ba3247a16593b0c104f88,
         type: 3}
       propertyPath: radius
-      value: 0.7
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7417207227888415369, guid: b6881d36206ba3247a16593b0c104f88,
         type: 3}
