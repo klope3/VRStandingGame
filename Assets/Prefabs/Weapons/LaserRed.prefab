@@ -54,7 +54,7 @@ MonoBehaviour:
   impactForce: 1
   impactLayers:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 2057
   OnImpact:
     m_PersistentCalls:
       m_Calls:
