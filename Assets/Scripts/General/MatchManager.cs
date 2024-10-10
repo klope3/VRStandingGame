@@ -11,6 +11,31 @@ public class MatchManager : MonoBehaviour
     [SerializeField] private EnemyPositionProvider positionProvider;
     [SerializeField] private Transform[] enemyPools;
     [SerializeField] private float matchMinutes;
+
+    [SerializeField] 
+    [Tooltip("Arc span at the lowest difficulty.")] 
+    private float minArcSpan;
+
+    [SerializeField]
+    [Tooltip("Arc span at the highest difficulty.")]
+    private float maxArcSpan;
+
+    [SerializeField]
+    [Tooltip("Enemy spawn timer at the highest difficulty. (lower interval = more frequent spawning = more difficult)")]
+    private float minSpawnInterval;
+
+    [SerializeField]
+    [Tooltip("Enemy spawn timer at the lowest difficulty.")]
+    private float maxSpawnInterval;
+
+    [SerializeField]
+    [Tooltip("Max enemies at the lowest difficulty.")]
+    private int minEnemiesMax;
+
+    [SerializeField]
+    [Tooltip("Max enemies at the highest difficulty.")]
+    private int maxEnemiesMax;
+
     private readonly float countdownSeconds = 3;
     private float countdownTimer;
     private bool isCountingDown;
@@ -19,11 +44,12 @@ public class MatchManager : MonoBehaviour
     private int nextMatchMaxEnemies;
     private float nextMatchArcSpan;
     private float nextMatchSpawnInterval;
-    private float nextMatchMaxEnemyDistance;
     public UnityEvent OnCountdownStart;
     public UnityEvent OnCountdownSecond; //each time a second elapses in the countdown
     public UnityEvent OnMatchStart;
     public UnityEvent OnMatchStop;
+
+    private readonly int TOTAL_DIFFICULTY_SETTINGS = 10;
 
     public float MatchTimer
     {
@@ -105,7 +131,6 @@ public class MatchManager : MonoBehaviour
     private void ApplyDifficulty()
     {
         positionProvider.SetArcSpan(nextMatchArcSpan);
-        positionProvider.SetMaxDistance(nextMatchMaxEnemyDistance);
         aiManager.SetMaxEnemies(nextMatchMaxEnemies);
         aiManager.SetSpawnInterval(nextMatchSpawnInterval);
     }
@@ -162,9 +187,9 @@ public class MatchManager : MonoBehaviour
     [Button]
     private void SetNextMatchDifficulty(int difficulty)
     {
-        nextMatchArcSpan = 30 * difficulty + 30;
-        nextMatchMaxEnemies = Mathf.RoundToInt(1.7f * difficulty + 2);
-        nextMatchSpawnInterval = -0.35f * difficulty + 5;
-        nextMatchMaxEnemyDistance = 1.1f * difficulty + 7;
+        float lerpFactor = difficulty / (float)TOTAL_DIFFICULTY_SETTINGS;
+        nextMatchArcSpan = Mathf.Lerp(minArcSpan, maxArcSpan, lerpFactor);
+        nextMatchMaxEnemies = Mathf.RoundToInt(Mathf.Lerp(minEnemiesMax, maxEnemiesMax, lerpFactor));
+        nextMatchSpawnInterval = Mathf.Lerp(maxSpawnInterval, minSpawnInterval, lerpFactor);
     }
 }

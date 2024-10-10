@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 //Manages AI spawning and behavior.
 //Useful for difficulty settings.
-public class AiManager : MonoBehaviour
+public class AiManager : SerializedMonoBehaviour
 {
-    [SerializeField, Tooltip("Enemies will only spawn when there are less than this many currently alive.")] 
-        private int maxEnemies; 
-    [SerializeField, Tooltip("The number of seconds between enemy spawns.")] 
-        private float enemySpawnTimer;
-    [SerializeField] private GameObjectPoolable tempEnemyPf; //this will be removed once we're actually using more than one enemy type
+    [SerializeField] 
+    [Tooltip("Enemies will only spawn when there are less than this many currently alive.")] 
+    private int maxEnemies; 
+
+    [SerializeField] 
+    [Tooltip("The number of seconds between enemy spawns.")] 
+    private float enemySpawnTimer;
+
+    [OdinSerialize]
+    [Tooltip("All enemies and their relative chances of spawning.")]
+    private WeightedCollection<GameObjectPoolable> weights;
+
     [SerializeField] private GameObjectPool enemyPool;
     [SerializeField] private EnemyPositionProvider positionProvider;
     private float spawnTimer;
@@ -38,7 +47,8 @@ public class AiManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObjectPoolable go = enemyPool.GetPooledObject(tempEnemyPf);
+        GameObjectPoolable goPf = weights.ChooseWeightedRandom();
+        GameObjectPoolable go = enemyPool.GetPooledObject(goPf);
         HealthHandler health = go.GetComponent<HealthHandler>();
         health.ResetHealth();
         health.OnDied += Health_OnDied;
@@ -74,5 +84,11 @@ public class AiManager : MonoBehaviour
     {
         health.OnDied -= Health_OnDied;
         aliveEnemies--;
+    }
+
+    [Button]
+    private void DebugLogWeights()
+    {
+        weights.DebugWeights();
     }
 }
