@@ -377,6 +377,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: -7638794482757868417}
+        m_TargetAssemblyTypeName: IntervalPattern, Assembly-CSharp
+        m_MethodName: ResetPattern
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &6154431196613808654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +434,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternData: {fileID: 11400000, guid: 3a9ae42e099a89b469f6ac87ee079254, type: 2}
   looping: 1
+  resetOnEnable: 1
+  OnReset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2669382491792050500}
+        m_TargetAssemblyTypeName: ProjectileLauncherMultiple, Assembly-CSharp
+        m_MethodName: SetTriggerAll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2901891352328419820}
+        m_TargetAssemblyTypeName: MultiObjectSetActive, Assembly-CSharp
+        m_MethodName: SetAllActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &724322593948065575
 MonoBehaviour:
   m_ObjectHideFlags: 0

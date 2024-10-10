@@ -7,6 +7,10 @@ public class IntervalPattern : MonoBehaviour
 {
     [SerializeField] private IntervalPatternSO patternData;
     [SerializeField] private bool looping;
+    [SerializeField]
+    [Tooltip("If true, call ResetPattern() in OnEnable().")]
+    private bool resetOnEnable = true;
+
     private float timer;
     private float timerRandAdd;
     private int intervalIndex;
@@ -15,11 +19,17 @@ public class IntervalPattern : MonoBehaviour
     public event IntervalChange OnIntervalFinished;
     public System.Action OnStart;
     public System.Action OnEnd;
+    public UnityEvent OnReset;
 
     private void Awake()
     {
         if (patternData.Intervals.Length == 0) return;
         SetRunning(true);
+    }
+
+    private void OnEnable()
+    {
+        if (resetOnEnable) ResetPattern();
     }
 
     private void Update()
@@ -60,5 +70,6 @@ public class IntervalPattern : MonoBehaviour
     {
         intervalIndex = 0;
         timer = 0;
+        OnReset?.Invoke();
     }
 }
