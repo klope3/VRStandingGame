@@ -51,4 +51,9 @@ public class AiNavigationModule : MonoBehaviour
     {
         return positionProvider.GetRandPosition(transform.position, maxAngleDeviance, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
     }
+
+    public Vector3 GetRandNavPosition()
+    {
+        return positionProvider.GetRandPosition(minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
+    }
 }

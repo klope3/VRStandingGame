@@ -31,6 +31,11 @@ public class EnemyPositionProvider : MonoBehaviour
         return CalcRandPosition(-0.5f * arcSpan, 0.5f * arcSpan, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
     }
 
+    public Vector3 GetRandPosition(float minDistFromCenter, float maxDistFromCenter, float minHeight, float maxHeight)
+    {
+        return CalcRandPosition(-0.5f * arcSpan, 0.5f * arcSpan, minDistFromCenter, maxDistFromCenter, minHeight, maxHeight);
+    }
+
     public Vector3 GetRandPosition(Vector3 refPosition, float maxAngleDeviance)
     {
         CalcClampedDeviatedAngle(refPosition, maxAngleDeviance, out float clampMin, out float clampMax);

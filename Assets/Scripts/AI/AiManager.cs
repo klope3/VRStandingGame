@@ -54,7 +54,7 @@ public class AiManager : SerializedMonoBehaviour
         health.OnDied += Health_OnDied;
 
         AiNavigationModule nav = go.GetComponent<AiNavigationModule>();
-        Vector3 position = nav.GetNextNavPosition();
+        Vector3 position = nav.GetRandNavPosition();
         go.transform.position = position;
 
         AiMovement movement = go.GetComponent<AiMovement>();

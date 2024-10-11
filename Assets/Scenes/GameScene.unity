@@ -461,9 +461,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: enemyWeights
-      Entry: 6
-      Data: 
     - Name: weights
       Entry: 7
       Data: 0|WeightedCollection`1[[GameObjectPoolable, Assembly-CSharp]], Assembly-CSharp
@@ -516,12 +513,6 @@ MonoBehaviour:
       Data: 
   maxEnemies: 3
   enemySpawnTimer: 5
-  basicEnemyWeight: 0
-  lateralEnemyWeight: 0
-  basicEnemyPf: {fileID: 0}
-  lateralEnemyPf: {fileID: 0}
-  tempEnemyPf: {fileID: 6154431196613808654, guid: 849182f0afb38b14dae7e3dad2c881fb,
-    type: 3}
   enemyPool: {fileID: 16776650}
   positionProvider: {fileID: 227797281}
   OnSpawnEnemy:
@@ -10671,6 +10662,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternData: {fileID: 11400000, guid: 3a9ae42e099a89b469f6ac87ee079254, type: 2}
   looping: 0
+  resetOnEnable: 1
+  OnReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &756983894
 Transform:
   m_ObjectHideFlags: 0
@@ -30675,6 +30670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775304006528803334, guid: 54b2b839ca0e19e4ca1100979649bb5c,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4095
       objectReference: {fileID: 0}
     - target: {fileID: 4028267663429777732, guid: 54b2b839ca0e19e4ca1100979649bb5c,
         type: 3}
