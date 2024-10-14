@@ -46,6 +46,7 @@ public class MatchManager : MonoBehaviour
     private float nextMatchSpawnInterval;
     public UnityEvent OnCountdownStart;
     public UnityEvent OnCountdownSecond; //each time a second elapses in the countdown
+    public UnityEvent OnCountdownAbort;
     public UnityEvent OnMatchStart;
     public UnityEvent OnMatchStop;
 
@@ -56,6 +57,14 @@ public class MatchManager : MonoBehaviour
         get
         {
             return matchTimer;
+        }
+    }
+
+    public float CountdownTimer
+    {
+        get
+        {
+            return countdownTimer;
         }
     }
 
@@ -147,6 +156,7 @@ public class MatchManager : MonoBehaviour
         if (isCountingDown)
         {
             isCountingDown = false;
+            OnCountdownAbort?.Invoke();
             return;
         }
 
